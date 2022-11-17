@@ -1,10 +1,10 @@
-name: CI BAck-end
+name: CI Back-end
 
 on: [push] #Sempre que um novo arquivo é enviado ao repositório
 
 jobs:
   primeiro-job:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Primeiro passo"
       - name: Checkout
