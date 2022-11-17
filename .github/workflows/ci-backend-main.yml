@@ -1,0 +1,16 @@
+name: CI BAck-end
+
+on: [push] #Sempre que um novo arquivo é enviado ao repositório
+
+jobs:
+  primeiro-job:
+    runs-on: ubunto-latest
+    steps:
+      - run: echo "Primeiro passo"
+      - name: Checkout
+        uses: actions/checkout@v3 # O action "checkout" faz o checkout do branch atual no Servidor CI.
+      - name:  Lista arquivos
+        run: ls ${{ github.workspace }}
+      - name: Status
+        run: echo "Status ${{ job.status }}."
+        # O hífen indica um passo, que pode agrupar diferentes configurações.
