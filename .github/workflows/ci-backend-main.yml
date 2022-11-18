@@ -1,16 +1,17 @@
-name: CI Workflow
+name: CI Workflo
 
 on:
   push:
     branches:
+
       - 'main' #Apenas no branch principal
     paths:
       - 'back-end/**' # Especifica a pasta onde vai rodar o teste
+
   pull_request:
     paths:
       - 'back-end/**'
   
-    
 jobs:
   build:
     runs-on: ubuntu-latest # Máquina virtual onde vai ser rodado
@@ -39,4 +40,3 @@ jobs:
           run: mvn --activate-profiles prod -DskipTests package
 
 # O hifén indica um passo, e tudo que não tem hífen que vem depois estão incluidos no passo.
-    
