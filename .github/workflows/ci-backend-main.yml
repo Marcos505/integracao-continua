@@ -17,8 +17,22 @@ jobs:
         with: # Pega esses comandos.
           java-version: '11'
           distribution: 'zulu'
-      - name: Compilação / Test / Package / 
+      - name: Compilação / Test / 
         working-directory: back-end/
-        run: mvn --activate-profiles prod package
+        run: mvn --activate-profiles prod test
+        
+  build-two:
+      runs-on: ubuntu-latest # Máquina virtual onde vai ser rodado
+      steps:
+        - uses: actions/checkout@v3
+        - name: Set up JDK 11
+          uses: actions/setup-java@v3 # É como se fosse um import
+          with: # Pega esses comandos.
+            java-version: '11'
+            distribution: 'zulu'
+        - name: Compilação / Package / 
+          working-directory: back-end/
+          run: mvn --activate-profiles prod -DskipTests package
+
 # O hifén indica um passo, e tudo que não tem hífen que vem depois estão incluidos no passo.
     
