@@ -6,7 +6,11 @@ on:
       - 'main' #Apenas no branch principal
     paths:
       - 'back-end/**' # Especifica a pasta onde vai rodar o teste
-
+  pull_request:
+    paths:
+      - 'back-end/**'
+  
+    
 jobs:
   build:
     runs-on: ubuntu-latest # Máquina virtual onde vai ser rodado
