@@ -12,7 +12,7 @@ jobs:
   
   main:
     name: CI Worlgflow Main
-    uses: ./.github/workflows/ci-backend-main-yml
+    uses: ./.github/workflows/ci-backend-main.yml
     
   merge:
     needs: main
