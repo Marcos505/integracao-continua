@@ -17,7 +17,8 @@ jobs:
         with: # Pega esses comandos.
           java-version: '11'
           distribution: 'zulu'
-      - name: Compilação / Test/ Package
+      - name: Compilação / Test / Package / 
+        working-directory: back-end/
         run: mvn --activate-profiles prod package
 # O hifén indica um passo, e tudo que não tem hífen que vem depois estão incluidos no passo.
     
