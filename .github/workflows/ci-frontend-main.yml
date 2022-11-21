@@ -27,6 +27,8 @@ jobs:
         working-directory: front-end
         run: npm run build --prod
         
+      - name: Instalação do cliente Railway
+        run: npm install -g @railway/cli
       - name: Deploy
         working-directory: front-end/dist/sgcmapp
         run: railway up --detach --service front-app
