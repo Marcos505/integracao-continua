@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 16
       - name: Angular
-        run: npm i -g @angular/cli
+        run: npm install
         
       - name: Package
         working-directory: front-end
@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: 16
       - name: Angular
-        run: npm i -g @angular/cli
+        run: npm install
         
       - name: Test
         working-directory: front-end/
