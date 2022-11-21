@@ -5,10 +5,10 @@ on:
     branches:
       - 'main' # Apenas no branch principal
     paths:
-      - 'front-end/scr/**' # Especifica a pasta onde vai rodar o teste
+      - 'front-end/**' # Especifica a pasta onde vai rodar o teste
   pull_request:
     paths: 
-      - 'front-end/scr/**'
+      - 'front-end/**'
   workflow_call:
   
 jobs:
@@ -19,9 +19,13 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Angular
+        run: npm i -g @angular/cli
+        
       - name: Package
-        working-directory: front-end/scr/
+        working-directory: front-end
         run: npm run build --prod
+        
         
   build-two:
     needs: build
@@ -31,8 +35,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Angular
+        run: npm i -g @angular/cli
+        
       - name: Test
         working-directory: front-end/
         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
         
-
