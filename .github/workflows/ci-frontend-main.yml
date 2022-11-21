@@ -1,0 +1,38 @@
+name: CI WorkFlow Front
+
+on:
+  push:
+    branches:
+      - 'main' # Apenas no branch principal
+    paths:
+      - 'front-end/**' # Especifica a pasta onde vai rodar o teste
+  pull_request:
+    paths: 
+      - 'front-end/**'
+  workflow_call:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest # Máquina virtual onde vai ser rodado
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Compilação / Test
+        working-directory: front-end/
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        
+  build-two:
+    runs-on: ubuntu-latest # Máquina virtual onde vai ser rodado
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Compilação / Package
+        working-directory: front-end/
+        run: npm run build --prod
+
+
+    
