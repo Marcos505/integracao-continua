@@ -33,6 +33,3 @@ jobs:
       - name: Compilação / Package
         working-directory: front-end/
         run: npm run build --prod
-
-
-    
