@@ -5,10 +5,10 @@ on:
     branches:
       - 'main' # Apenas no branch principal
     paths:
-      - 'front-end/**' # Especifica a pasta onde vai rodar o teste
+      - 'front-end/scr/**' # Especifica a pasta onde vai rodar o teste
   pull_request:
     paths: 
-      - 'front-end/**'
+      - 'front-end/scr/**'
   workflow_call:
   
 jobs:
@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 16
       - name: Package
-        working-directory: front-end/
+        working-directory: front-end/scr/
         run: npm run build --prod
         
   build-two:
