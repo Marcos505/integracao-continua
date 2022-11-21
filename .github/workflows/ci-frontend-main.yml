@@ -19,9 +19,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Test
+      - name: Package
         working-directory: front-end/
-        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        run: npm run build --prod
         
   build-two:
     needs: build
@@ -31,6 +31,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Package
+      - name: Test
         working-directory: front-end/
-        run: npm run build --prod
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+        
+
