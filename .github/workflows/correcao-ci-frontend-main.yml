@@ -38,7 +38,7 @@ jobs:
           node-version: '16'
       - name: Instalação de dependências
         working-directory: front-end/
-        run: npm clean install
+        run: npm clean-install
       - name: build
         working-directory: front-end/
         run: npm run build --prod
