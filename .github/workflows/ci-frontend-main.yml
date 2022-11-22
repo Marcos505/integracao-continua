@@ -1,4 +1,4 @@
-name: CI WorkFlow Front
+name: CI and CD WorkFlow Front
 
 on:
   push:
@@ -23,6 +23,10 @@ jobs:
         working-directory: front-end
         run: npm install
         
+      - name: Test
+        working-directory: front-end
+        run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
       - name: Package
         working-directory: front-end
         run: npm run build --prod
@@ -34,21 +38,4 @@ jobs:
         run: railway up --detach --service front-app
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        
-        
-#   build-two:
-#     needs: build
-#     runs-on: ubuntu-latest # Máquina virtual onde vai ser rodado
-#     steps:
-#       - uses: actions/checkout@v3
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 16
-#       - name: Angular
-#         working-directory: front-end
-#         run: npm install
-        
-#       - name: Test
-#         working-directory: front-end/
-#         run: npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-        
+           
